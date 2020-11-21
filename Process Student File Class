@@ -1,0 +1,39 @@
+/**
+ * Name: Hui Jiang CIT245806
+ * Date: 10-Sep-2020
+ */
+
+import java.io.*;
+import java.util.*;
+public class ProcessStudentFile 
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            BufferedReader reader = new BufferedReader(new FileReader("scores.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("results.txt"));
+            writer.write("Report for Hui Jiang dated " + new Date() + "\n");
+            String inLine = reader.readLine();
+            while (inLine != null)
+            {
+                String[] lineArray = inLine.split(";");
+                String name = lineArray[0];
+                String[] studentScores = lineArray[1].split(",");              
+                
+                Student student = new Student(name, studentScores);
+                writer.write(student.calculateGrade() + "\n");
+                inLine = reader.readLine();
+            }
+            reader.close();
+            writer.close();
+
+            System.out.println("Calculations finished & grades to results.txt");
+        }
+        catch (Exception ex)
+        {
+            System.out.println("Error " + ex);
+        }
+
+    } 
+}
