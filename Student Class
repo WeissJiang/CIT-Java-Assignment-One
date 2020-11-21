@@ -1,0 +1,58 @@
+/**
+ * Name: Hui Jiang CIT245806
+ * Date: 10-Sep-2020
+ */
+
+public class Student
+{
+    private String name;
+    private final int MAX_TESTS = 4;
+    private int[] tests = new int[MAX_TESTS];
+    
+    public Student(String inName, String[] inTests){
+        name = inName;
+        try
+        {
+            for (int i=0; i<MAX_TESTS; i++)
+            {
+                tests[i] = Integer.parseInt(inTests[i]);
+            }      
+        }
+        catch (NumberFormatException ex)
+        {
+            System.out.println("Error with tests for student " + name);
+        }
+    }
+    
+    public Student(String inName, int[] inTests){
+        name = inName;
+        tests = inTests;
+    }
+    
+    public String calculateGrade(){
+        int total = 0;
+        for (int i=0; i < MAX_TESTS; i++)
+        {
+            total += tests[i];
+        }
+        
+        String grade = "";
+        if(total < 50){
+            grade = "Fail";
+        }
+        
+        else if(total >= 50 && total < 75){
+            grade ="Pass";
+        }
+        
+        else if(total >=75 && total <85){
+            grade = "Credit";
+        }
+        
+        else{
+            grade = "Distinction";
+        }
+                
+        return name + "," + grade;
+    }
+}
