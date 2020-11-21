@@ -1,0 +1,96 @@
+/**
+ * Name: Hui Jiang CIT245806
+ * Date: 10-Sep-2020
+ */
+
+import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class StudentTest
+{
+    private Student student1;
+    private Student student2;
+    private Student student3;
+    private Student student4;
+    private Student student5;
+    private Student student6;
+    private Student student7;
+
+    /**
+     * Default constructor for test class StudentTest
+     */
+    public StudentTest()
+    {
+    }
+
+    /**
+     * Sets up the test fixture.
+     *
+     * Called before every test case method.
+     */
+    @Before
+    public void setUp()
+    {
+        student1 = new Student("Andy Apple", new int[]{1,2,3,4});
+        student2 = new Student("Bart Banana", new int[]{10,10,10,20});
+        student3 = new Student("Calvin Carrot", new int[]{10,11,12,20});
+        student4 = new Student("Drew Date", new String[]{"15","15","15", "30"});
+        student5 = new Student("Ernie Eggplant", new int[]{15,16,17,30});
+        student6 = new Student("Fred Fig", new int[]{17,17,17,34});
+        student7 = new Student("Garry Grape", new int[]{17,18,19,40});
+    }
+
+    /**
+     * Tears down the test fixture.
+     *
+     * Called after every test case method.
+     */
+    @After
+    public void tearDown()
+    {
+    }
+
+    @Test
+    public void testA_score10Fail()
+    {
+        assertEquals("Andy Apple,Fail", student1.calculateGrade());
+    }
+
+    @Test
+    public void testB_score50Pass()
+    {
+        assertEquals("Bart Banana,Pass", student2.calculateGrade());
+    }
+
+    @Test
+    public void testC_score52Pass()
+    {
+        assertEquals("Calvin Carrot,Pass", student3.calculateGrade());
+    }
+
+    @Test
+    public void testD_StringArray_score75Credit()
+    {
+        assertEquals("Drew Date,Credit", student4.calculateGrade());
+    }
+
+    @Test
+    public void testE_score78Credit()
+    {
+        assertEquals("Ernie Eggplant,Credit", student5.calculateGrade());
+    }
+
+    @Test
+    public void testF_score85Distinction()
+    {
+        assertEquals("Fred Fig,Distinction", student6.calculateGrade());
+    }
+
+    @Test
+    public void testG_score88Distinction()
+    {
+        assertEquals("Garry Grape,Distinction", student7.calculateGrade());
+    }
+}
